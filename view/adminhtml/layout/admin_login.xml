@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-login"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Remove default logo -->
+        <referenceBlock name="logo" remove="true"/>
+        <referenceBlock name="new.logo.menu" remove="true"/>
+        <referenceBlock name="indexiz_admincustomizer_inline_css" remove="true" />
+
+
+        <!-- Add your custom logo block to login.header -->
+        <referenceContainer name="login.header">
+             <block class="Indexiz\AdminCustomizer\Block\Adminhtml\Login\Logo"
+                       name="custom.admin.logo"
+                       template="Indexiz_AdminCustomizer::login/logo.phtml"
+                       before="-"/>
+        </referenceContainer>
+    </body>
+</page>

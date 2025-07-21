@@ -1,0 +1,65 @@
+<?php
+/**
+ * @var \Indexiz\AdminCustomizer\Block\Adminhtml\InlineCss $block
+ * @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer
+ */
+
+if ($block->isEnabled() && $block->canChangeColor()):
+    $bgColor         = $block->getConfig()->getValue('color_schema/main_menu', 'background') ?: '#2f2f2f';
+    $hoverColor      = $block->getConfig()->getValue('color_schema/main_menu', 'background_hover') ?: $bgColor;
+    $textColor       = $block->getConfig()->getValue('color_schema/main_menu', 'text') ?: '#ffffff';
+    $textColorHover  = $block->getConfig()->getValue('color_schema/main_menu', 'text_hover') ?: $textColor;
+    $ButtonBackgorund       = $block->getConfig()->getValue('color_schema/button', 'primary_background') ?: '#ffffff';
+    $ButtonTextColor        = $block->getConfig()->getValue('color_schema/button', 'primary_background_text') ?: $ButtonBackgorund;
+    $ButtonBackgorundHover  = $block->getConfig()->getValue('color_schema/button', 'primary_background_hover') ?: '#ffffff';
+    $ButtonHoverText        = $block->getConfig()->getValue('color_schema/button', 'primary_background_hover_text') ?: $ButtonBackgorund;
+
+    $styles = <<<STYLE
+    .menu-wrapper:before {
+        background-color:#{$block->escapeHtmlAttr($bgColor)} !important;
+    }
+
+    .admin__menu .level-0._active > a,
+    .admin__menu .level-0:hover > a {
+        background-color:#{$block->escapeHtmlAttr($hoverColor)} !important;
+        color:#{$block->escapeHtmlAttr($textColorHover)} !important;
+    }
+
+    .admin__menu .level-0 > a {
+        color:#{$block->escapeHtmlAttr($textColor)} !important;
+    }
+
+    .abs-action-primary,
+    button.primary,
+    .page-actions > button.action-primary,
+    .page-actions .page-actions-buttons > button.action-primary,
+    .page-actions .page-actions-buttons > .action.action-primary,
+    .block-footer .action-add.primary {
+        background-color:#{$block->escapeHtmlAttr($ButtonBackgorund)} !important;
+        border-color:#{$block->escapeHtmlAttr($ButtonBackgorund)} !important;
+        color:#{$block->escapeHtmlAttr($ButtonTextColor)} !important;
+    }
+
+    .abs-action-primary:hover,
+    .abs-action-primary:active,
+    .abs-action-primary:focus,
+    button.primary:hover,
+    button.primary:active,
+    button.primary:focus,
+    .page-actions > button.action-primary:hover,
+    .page-actions > button.action-primary:active,
+    .page-actions > button.action-primary:focus,
+    .page-actions .page-actions-buttons > button.action-primary:hover,
+    .page-actions .page-actions-buttons > button.action-primary:active,
+    .page-actions .page-actions-buttons > button.action-primary:focus,
+    .block-footer .action-add.primary:hover,
+    .block-footer .action-add.primary:active,
+    .block-footer .action-add.primary:focus {
+        background-color:#{$block->escapeHtmlAttr($ButtonBackgorundHover)} !important;
+        border-color:#{$block->escapeHtmlAttr($ButtonBackgorundHover)} !important;
+        color:#{$block->escapeHtmlAttr($ButtonHoverText)} !important;
+    }
+STYLE;
+    ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('style', [], $styles, false) ?>
+<?php endif; ?>

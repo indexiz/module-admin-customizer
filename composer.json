@@ -1,0 +1,27 @@
+{
+  "name": "indexiz/module-admin-customizer",
+  "description": "Magento 2 module to customize admin panel appearance (logos, colors, footer, etc.)",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "authors": [
+        {
+            "name": "Support",
+            "email": "mujtabam2dev@gmail.com",
+            "homepage": "https://indexiz.com/",
+            "role": "Developer"
+        }
+    ],
+  "require": {
+    "php": "^7.4 || ^8.2",
+    "magento/framework": "^103.0",
+    "indexiz/module-base": "^1.0.0"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Indexiz\\AdminCustomizer\\": ""
+    }
+  }
+}

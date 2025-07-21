@@ -1,0 +1,8 @@
+<?php if ($logoUrl = $block->getAdminLogoUrl()): ?>
+    <style>
+        .logo img {
+            content: url('<?= $logoUrl ?>');
+            max-height: 40px;
+        }
+    </style>
+<?php endif; ?>
