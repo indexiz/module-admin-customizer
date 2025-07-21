@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+
+        <add id="Indexiz_AdminCustomizer::config"
+             title="Admin View Customizer"
+             module="Indexiz_AdminCustomizer"
+             sortOrder="90"
+             parent="Indexiz_Base::config"
+             action="adminhtml/system_config/edit/section/admincustomizer"
+             resource="Indexiz_AdminCustomizer::config" />
+    </menu>
+</config>

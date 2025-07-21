@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <!-- Remove Magento's default logo block entirely -->
+        <referenceContainer name="header">
+            <referenceBlock name="logo" remove="true"/>
+        </referenceContainer>
+
+       <referenceContainer name="head.additional">
+            <block class="Indexiz\AdminCustomizer\Block\Adminhtml\InlineCss"
+                   name="indexiz_admincustomizer_inline_css"
+                   template="Indexiz_AdminCustomizer::inline/css.phtml"/>
+        </referenceContainer>
+        <!-- Add your custom logo block in its place -->
+        <referenceContainer name="menu.wrapper">
+            <block class="Indexiz\AdminCustomizer\Block\Adminhtml\Page\Logo"
+                   name="new.logo.menu"
+                   before="-">
+                <arguments>
+                    <!-- Pass through any arguments your block/template needs -->
+                    <argument name="edition" translate="true" xsi:type="string">Community Edition</argument>
+                </arguments>
+                <!-- Use your own template -->
+                <action method="setTemplate">
+                    <argument name="template" xsi:type="string">Indexiz_AdminCustomizer::page/logo.phtml</argument>
+                </action>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="copyright" class="Indexiz\AdminCustomizer\Block\Adminhtml\Page\Copyright" >
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Indexiz_AdminCustomizer::page/custom_copyright.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

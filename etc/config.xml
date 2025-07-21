@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/config.xsd">
+    <default>
+        <admincustomizer>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <color_schema>
+                <change_color>0</change_color>
+                <main_menu>
+                    <background>#373330</background>
+                    <background_hover>#4a4542</background_hover>
+                    <text>#aaa6a0</text>
+                    <text_hover>#f7f3eb</text_hover>
+                </main_menu>
+                <button>
+                    <primary_background>#eb5202</primary_background>
+                    <primary_background_text>#ffffff</primary_background_text>
+                    <primary_background_hover>#ba4000</primary_background_hover>
+                    <primary_background_hover_text>#ffffff</primary_background_hover_text>
+                </button>
+            </color_schema>
+            <footer>
+                <change_copyright>0</change_copyright>
+                <custom_copyright>Indexiz. All rights reserved.</custom_copyright>
+            </footer>
+        </admincustomizer>
+    </default>
+</config>

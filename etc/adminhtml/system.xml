@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="admincustomizer" translate="label" sortOrder="900" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Admin View Customizer</label>
+            <tab>indexiz</tab>
+            <resource>Indexiz_AdminCustomizer::config</resource>
+
+            <group id="general" translate="label" sortOrder="10" showInDefault="1">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Enable Extension</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="logos" translate="label" sortOrder="20" showInDefault="1">
+                <label>Logos</label>
+                <depends>
+                    <field id="admincustomizer/general/enabled">1</field>
+                </depends>
+                <field id="admin_logo" translate="label" type="image" sortOrder="10" showInDefault="1">
+                    <label>Main Logo</label>
+                     <comment>Allowed file types: jpeg, gif, png.</comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media">admincustomizer</upload_dir>
+                    <base_url type="media">admincustomizer</base_url>
+                </field>
+                <field id="menu_logo" translate="label" type="image" sortOrder="20" showInDefault="1">
+                    <label>Menu Logo</label>
+                     <comment>Allowed file types: jpeg, gif, png.</comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media">admincustomizer</upload_dir>
+                    <base_url type="media">admincustomizer</base_url>
+                </field>
+            </group>
+
+            <group id="color_schema" translate="label" sortOrder="30" showInDefault="1">
+                <label>Color Schema</label>
+                <depends>
+                    <field id="admincustomizer/general/enabled">1</field>
+                </depends>
+               <field id="change_color" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Do you want change Color scheme</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <group id="main_menu" translate="label" sortOrder="10" showInDefault="1">
+                    <label>Main Menu Colors</label>
+                    <depends>
+                        <field id="admincustomizer/general/enabled">1</field>
+                         <field id="admincustomizer/color_schema/change_color">1</field>
+                    </depends>
+
+                    <field id="background" translate="label" type="text" sortOrder="10" showInDefault="1">
+                        <label>Background</label>
+                        <frontend_model>Indexiz\AdminCustomizer\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                    </field>
+                    <field id="background_hover" translate="label" type="text" sortOrder="20" showInDefault="1">
+                        <label>Background (On Hover)</label>
+                        <frontend_model>Indexiz\AdminCustomizer\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                    </field>
+                    <field id="text" translate="label" type="text" sortOrder="30" showInDefault="1">
+                        <label>Text Color</label>
+                        <frontend_model>Indexiz\AdminCustomizer\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                    </field>
+                    <field id="text_hover" translate="label" type="text" sortOrder="40" showInDefault="1">
+                        <label>Text Color (On Hover)</label>
+                        <frontend_model>Indexiz\AdminCustomizer\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                    </field>
+                </group>
+
+                <group id="button" translate="label" sortOrder="20" showInDefault="1">
+                    <label>Button Colors</label>
+                    <depends>
+                        <field id="admincustomizer/general/enabled">1</field>
+                         <field id="admincustomizer/color_schema/change_color">1</field>
+                    </depends>
+                    <field id="primary_background" translate="label" type="text" sortOrder="10" showInDefault="1">
+                        <label>Primary Button Background</label>
+                        <frontend_model>Indexiz\AdminCustomizer\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                    </field>
+                    <field id="primary_background_text" translate="label" type="text" sortOrder="20" showInDefault="1">
+                        <label>Primary Button Text</label>
+                        <frontend_model>Indexiz\AdminCustomizer\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                    </field>
+                    <field id="primary_background_hover" translate="label" type="text" sortOrder="30" showInDefault="1">
+                        <label>Primary Button Background Hover</label>
+                        <frontend_model>Indexiz\AdminCustomizer\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                    </field>
+                    <field id="primary_background_hover_text" translate="label" type="text" sortOrder="40" showInDefault="1">
+                        <label>Primary Button Background Hover Text</label>
+                        <frontend_model>Indexiz\AdminCustomizer\Block\Adminhtml\System\Config\Form\Field\Color</frontend_model>
+                    </field>
+                </group>
+
+
+            </group>
+
+            <group id="footer" translate="label" sortOrder="40" showInDefault="1">
+                <label>Footer</label>
+                <depends>
+                    <field id="admincustomizer/general/enabled">1</field>
+                </depends>
+                <field id="change_copyright" translate="label" type="select" sortOrder="10" showInDefault="1">
+                    <label>Do you want change Copyright</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+               <field id="custom_copyright" translate="label" type="text" sortOrder="50" showInDefault="1">
+                    <label>Custom Copyright Text</label>
+                    <comment>Leave blank to use default Magento copyright.</comment>
+                <depends>
+                    <field id="admincustomizer/footer/change_copyright">1</field>
+                </depends>
+               </field>
+            </group>
+
+      
+        </section>
+    </system>
+</config>

@@ -1,0 +1,6 @@
+<?php /** @var $block \Indexiz\AdminCustomizer\Block\Adminhtml\Page\Logo */ ?>
+<a href="<?= $block->getHomeLink() ?>" class="logo" title="<?= $block->escapeHtml($block->getLogoAlt()) ?>">
+    <img src="<?= $block->escapeUrl($block->getLogoUrl()) ?>"
+         alt="<?= $block->escapeHtml($block->getLogoAlt()) ?>"
+         class="logo-img"/>
+</a>
